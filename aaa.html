@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+
+            var deg = 0;
+
+            $('.main').click(function(){
+
+                deg-=90;
+
+                $(this).css({
+                    transform : ' rotateY('+deg+'deg)',
+                    '-webkit-transform':' rotateY('+deg+'deg)'        
+                });    
+
+            });
+        })
+
+    </script>
+    <style type="text/css">
+       .main
+       {
+        position: relative;
+        height: 200px;
+        width: 200px;
+        margin: auto;
+
+        /* 會呈現出其子元素設定的 3d 空間 */
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+
+        transition: all 1s;
+        -webkit-transition: all 1s;
+    }
+
+    .box{
+        width:200px;
+        height:200px;
+        position: absolute; 
+        opacity:0.8;
+        font-size:50px;
+    }
+    .box-0{
+        transform: rotateY(0deg) translateZ(100px); 
+        -webkit-transform: rotateY(0deg) translateZ(100px); 
+        background-color: #6699CC;
+    }
+    .box-90{
+        transform: rotateY(90deg) translateZ(100px);
+        -webkit-transform: rotateY(90deg) translateZ(100px); 
+        background-color: #99CCFF;
+    }
+    .box-180{
+        transform: rotateY(180deg) translateZ(100px); 
+        -webkit-transform: rotateY(180deg) translateZ(100px); 
+        background-color: #CCCCCC;
+    }
+    .box-270{
+        transform: rotateY(270deg) translateZ(100px);
+        -webkit-transform: rotateY(270deg) translateZ(100px);
+        background-color: #006699;
+    }
+</style>
+</head>
+<body><!--HTML -->  
+	<p>點 box 翻轉</p>
+    <div class="main">
+        <div class="box box-0">1</div> 
+        <div class="box box-90">2</div>
+        <div class="box box-180">3</div>
+        <div class="box box-270">4</div>
+    </div>
+</body>
+</html>
